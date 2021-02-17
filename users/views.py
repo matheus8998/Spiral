@@ -53,6 +53,10 @@ def register(request):
         return redirect('login')
     return render(request, 'register.html')
 
+def logout(request):
+    auth.logout(request)
+    return redirect('index')
+    
 def empty_field(field):
     return not field.strip()
 
