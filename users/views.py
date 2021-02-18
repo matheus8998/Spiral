@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 
+def index(request):
+    return render(request, 'index.html')
+
 def login(request):
     if request.method == "POST":
         email = request.POST['email']
@@ -18,7 +21,7 @@ def login(request):
             return redirect('register')
         return redirect('login')
 
-    return render(request, 'index.html')
+    return render(request, 'login.html')
 
 def register(request):
     if request.method == "POST":
@@ -56,7 +59,7 @@ def register(request):
 def logout(request):
     auth.logout(request)
     return redirect('index')
-    
+
 def empty_field(field):
     return not field.strip()
 
