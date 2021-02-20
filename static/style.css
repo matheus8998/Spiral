@@ -23,7 +23,7 @@ main {
 }
 
 .header-section {
-	background-color: orange;
+	background-color: #3d3f61;
 	height: 400px;
 	text-align: center;
 	padding-top: 80px;
@@ -38,16 +38,32 @@ main {
 }
 
 .list-items-section ul {
-	width: 100%;
-	margin: auto auto;
+	text-align: center;
+	padding-top: 80px;
+	padding-left: 240px;
+	padding-right: 240px;
+	margin: 0 auto;
 }
 
 .list-items-section li {
+	text-align: center;
+	width: 33%;
+	padding-right: 10px;
 	display: inline-block;
+	box-sizing: border-box;
+}
+
+.list-items-section h2 {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.list-items-section p {
+	font-size: 18px;
+	color: black;
 }
 
 footer {
-	background-color: green;
 	height: 100px;
 }
 
