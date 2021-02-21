@@ -3,25 +3,8 @@
 {% block content %}
     {% include 'partials/_messages.html' %}
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Spiral</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    </head>
-    <body>
         <div class="container">
-            <header>
-                <nav>
-                    <div class="topnav">	
-                        <a href="#">Spiral</a>
-                        <div class="topnav-right">	
-                            <a href="#">Login</a>
-                            <a href="#">Register</a>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+            {% include 'partials/_navbar.html' %}
     
             <main>
                 <section class="header-section">
@@ -33,17 +16,17 @@
                 <section class="list-items-section">
                     <ul>
                         <li>
-                            <img src="img/item-world.png">
+                            <img src="{% static 'img/item-world.png' %}">
                             <h2>Lorem ipsum</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut dolor id felis ullamcorper viverra.</p>
                         </li>
                         <li>
-                            <img src="img/item-world.png">
+                            <img src="{% static 'img/item-world.png' %}">
                             <h2>Lorem ipsum</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut dolor id felis ullamcorper viverra.</p>
                         </li>
                         <li>
-                            <img src="img/item-world.png">
+                            <img src="{% static 'img/item-world.png' %}">
                             <h2>Lorem ipsum</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut dolor id felis ullamcorper viverra.</p>
                         </li>

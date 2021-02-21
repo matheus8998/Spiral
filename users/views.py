@@ -19,7 +19,7 @@ def login(request):
         else:
             messages.error(request, 'Not a valid email!')
             return redirect('register')
-        return redirect('login')
+        return redirect('dashboard')
 
     return render(request, 'login.html')
 
@@ -53,12 +53,15 @@ def register(request):
         user.save()
 
         messages.success(request, 'Account registered!')
-        return redirect('login')
+        return redirect('dashboard')
     return render(request, 'register.html')
 
 def logout(request):
     auth.logout(request)
     return redirect('index')
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 def empty_field(field):
     return not field.strip()
