@@ -63,6 +63,18 @@ def logout(request):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+def user_profile(request):
+    if request.method == 'POST':
+        user = get_object_or_404(User, pk=request.user.id)
+        photo = request.FILES['photo']
+        description = request.POST['description']
+        hability = request.POST['hability']
+
+        ins = Endereco(user=user, photo=photo, description=description, hability=hability) 
+        ins.save()
+        return redirect('dashboard')
+    return render(request, 'user_profile.html')
+
 def empty_field(field):
     return not field.strip()
 
