@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
+from .models import UserDetails
 
 def index(request):
     return render(request, 'index.html')
@@ -66,14 +67,26 @@ def dashboard(request):
 def user_profile(request):
     if request.method == 'POST':
         user = get_object_or_404(User, pk=request.user.id)
-        photo = request.FILES['photo']
+        doc = request.FILES
+        photo = doc['photo']
         description = request.POST['description']
         hability = request.POST['hability']
 
-        ins = Endereco(user=user, photo=photo, description=description, hability=hability) 
+        ins = UserDetails(user=user, photo=photo, description=description, hability=hability) 
         ins.save()
         return redirect('dashboard')
-    return render(request, 'user_profile.html')
+    else:
+        user = request.user.id
+        print(user)
+        user_details = UserDetails.objects.filter(user=user)
+        print(user_details)
+
+        details = {
+            'user_details' : user_details
+        }
+        print(details)
+
+        return render(request, 'user_profile.html', details)
 
 def empty_field(field):
     return not field.strip()

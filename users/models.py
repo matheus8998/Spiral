@@ -6,6 +6,8 @@ class UserDetails(models.Model):
     photo = models.ImageField(upload_to='photos/%d/%m/%Y', blank=True)
     description = models.TextField()
     hability = models.CharField(max_length=150)
+    def __str__(self):
+        return self.description
 
 
 

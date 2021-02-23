@@ -4,7 +4,7 @@
     {% include 'partials/_messages.html' %}
 
     {% include 'partials/_navbar.html' %}
-    <form action="{% url 'user_profile' %}" method="post">
+    <form action="{% url 'user_profile' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
             <label for="photo">Profile picture</label>
@@ -20,6 +20,15 @@
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+    {% if user_details %}
+    {% for detail in user_details %}
+    <img src="{{ detail.photo.url }}" alt="oi">
+    <h6>{{ detail.description }}</h6>
+    <h6>oooooooooooooooooo</h6>
+    {% endfor %}
+    {% else %}
+    <h6>nao carregou</h6>
+    {% endif %}
 </body>
 </html>
 {% endblock %}
