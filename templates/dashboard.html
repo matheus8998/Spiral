@@ -4,6 +4,8 @@
 
 {% include 'partials/_navbar.html' %}
 
-    <h1>hey</h1>
-
+    {% for band in bands %}
+        <h2>{{band.name}}</h2>
+        <h3>{{band.description}}</h3>
+    {% endfor %}
 {% endblock %}

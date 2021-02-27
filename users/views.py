@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from .models import UserDetails
+from bands.models import Band
 
 def index(request):
     return render(request, 'index.html')
@@ -62,7 +63,12 @@ def logout(request):
     return redirect('index')
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    bands = Band.objects.all()
+
+    data = {
+        'bands': bands
+    }
+    return render(request, 'dashboard.html', data)
 
 def user_profile(request):
     if request.method == 'POST':
