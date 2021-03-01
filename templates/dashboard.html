@@ -4,8 +4,18 @@
 
 {% include 'partials/_navbar.html' %}
 
-    {% for band in bands %}
-        <h2>{{band.name}}</h2>
-        <h3>{{band.description}}</h3>
+<section class="list-band-section">
+    <ul>
+    {% for band in bands %} 
+        <li>
+            <div>	
+                <img src="{% static 'img/header-int.png' %}">
+            </div>
+            <h2>{{band.name}}</h2>
+            <p>{{band.description}}</p>
+        </li>
     {% endfor %}
+    </ul>
+</section>
+
 {% endblock %}
